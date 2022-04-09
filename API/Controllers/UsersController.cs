@@ -31,6 +31,8 @@ namespace API.Controllers
 
             var users = await _unitOfWork.UserRepository.GetUsersAsync();
 
+            var usersToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
+
             // Response.AddPaginationHeader(users.CurrentPage, users.PageSize,
             //     users.TotalCount, users.TotalPages);
 
