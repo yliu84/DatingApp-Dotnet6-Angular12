@@ -30,6 +30,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog/confirm-dialog.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ServerErrorComponent,
     MemberCardComponent,
     MemberEditComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    PhotoEditorComponent
   ],
   imports: [
     BrowserModule,

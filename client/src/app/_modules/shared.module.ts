@@ -5,6 +5,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import {FileUploadModule} from 'ng2-file-upload';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 
@@ -18,6 +19,7 @@ import {NgxGalleryModule} from '@kolkov/ngx-gallery';
     }),
     TabsModule.forRoot(),
     NgxGalleryModule,
+    FileUploadModule,
     BsDatepickerModule.forRoot(),
     ButtonsModule.forRoot(),
     ModalModule.forRoot()
@@ -27,7 +29,7 @@ import {NgxGalleryModule} from '@kolkov/ngx-gallery';
     ToastrModule,
     TabsModule,
     NgxGalleryModule,
-    // FileUploadModule,
+    FileUploadModule,
     BsDatepickerModule,
     // PaginationModule,
     ButtonsModule,
