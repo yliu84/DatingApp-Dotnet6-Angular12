@@ -30,16 +30,12 @@ namespace API.Controllers
             if (string.IsNullOrEmpty(userParams.Gender))
                 userParams.Gender = gender == "male" ? "female" : "male";
 
-            // var users = await _unitOfWork.UserRepository.GetMembersAsync(userParams);
+            var users = await _unitOfWork.UserRepository.GetMembersAsync(userParams);
 
-            var users = await _unitOfWork.UserRepository.GetUsersAsync();
+            Response.AddPaginationHeader(users.CurrentPage, users.PageSize,
+                users.TotalCount, users.TotalPages);
 
-            var usersToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
-
-            // Response.AddPaginationHeader(users.CurrentPage, users.PageSize,
-            //     users.TotalCount, users.TotalPages);
-
-            return Ok(usersToReturn);
+            return Ok(users);
         }
 
         [HttpGet("{username}", Name = "GetUser")]

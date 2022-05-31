@@ -1,6 +1,5 @@
 using API.Extensions;
 using API.Middleware;
-using Microsoft.OpenApi.Models;
 
 namespace API
 {

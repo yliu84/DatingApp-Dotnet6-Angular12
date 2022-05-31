@@ -5,8 +5,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import {PaginationModule} from 'ngx-bootstrap/pagination';
 import {FileUploadModule} from 'ng2-file-upload';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import {TimeagoModule} from 'ngx-timeago';
 import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 
 @NgModule({
@@ -21,7 +23,9 @@ import {NgxGalleryModule} from '@kolkov/ngx-gallery';
     NgxGalleryModule,
     FileUploadModule,
     BsDatepickerModule.forRoot(),
+    PaginationModule.forRoot(),
     ButtonsModule.forRoot(),
+    TimeagoModule.forRoot(),
     ModalModule.forRoot()
   ],
   exports: [
@@ -31,9 +35,9 @@ import {NgxGalleryModule} from '@kolkov/ngx-gallery';
     NgxGalleryModule,
     FileUploadModule,
     BsDatepickerModule,
-    // PaginationModule,
+    PaginationModule,
     ButtonsModule,
-    // TimeagoModule,
+    TimeagoModule,
     ModalModule
   ]
 })

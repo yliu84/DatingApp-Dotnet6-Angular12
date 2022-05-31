@@ -28,7 +28,7 @@ namespace API.Data.Repositories
                 .SingleOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<MemberDto>> GetMembersAsync(UserParams userParams)
+        public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
         {
             var query = _context.Users.AsQueryable();
 
@@ -46,7 +46,9 @@ namespace API.Data.Repositories
                 _ => query.OrderByDescending(u => u.LastActive)
             };
 
-            return await query.ProjectTo<MemberDto>(_mapper.ConfigurationProvider).ToListAsync();
+            return await PagedList<MemberDto>.CreateAsync(query.ProjectTo<MemberDto>(_mapper
+                .ConfigurationProvider).AsNoTracking(),
+                    userParams.PageNumber, userParams.PageSize);
         }
 
         public async Task<AppUser> GetUserByIdAsync(int id)
