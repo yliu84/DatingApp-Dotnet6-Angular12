@@ -41,7 +41,7 @@ namespace API.Data
                 UserName = "admin"
             };
 
-            await userManager.CreateAsync(admin, "089156");
+            await userManager.CreateAsync(admin, "password123");
             await userManager.AddToRolesAsync(admin, new[] { "Admin", "Moderator" });
         }
     }

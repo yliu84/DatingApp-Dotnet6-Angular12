@@ -41,7 +41,8 @@ export class AccountService {
 
    setCurrentUser(user: User) {
     user.roles = [];
-    const roles = this.getDecodedToken(user.token).role;
+    const claims = this.getDecodedToken(user.token);
+    const roles = claims['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
     Array.isArray(roles) ? user.roles = roles : user.roles.push(roles);
     localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource.next(user);

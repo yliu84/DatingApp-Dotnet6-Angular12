@@ -63,7 +63,7 @@ namespace API.Controllers
 
             if (!result.Succeeded) return Unauthorized();
 
-            return new UserDto
+            var loggedInUser = new UserDto
             {
                 Username = user.UserName,
                 Token = await _tokenService.CreateToken(user),
@@ -71,6 +71,8 @@ namespace API.Controllers
                 KnownAs = user.KnownAs,
                 Gender = user.Gender
             };
+
+            return loggedInUser;
         }
 
         private async Task<bool> UserExists(string username)
