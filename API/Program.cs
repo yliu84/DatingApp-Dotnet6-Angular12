@@ -1,4 +1,3 @@
-
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -11,6 +10,7 @@ namespace API
         public static async Task Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             using var scope = host.Services.CreateScope();
             var services = scope.ServiceProvider;
             try
